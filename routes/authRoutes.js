@@ -22,7 +22,7 @@ router.get("/getRedirect", async (req, res) => {
 });
 
 // @route   GET/auth/getToken
-// @desc    get oAuth reroute URL to redirect client to Spotify auth UI
+// @desc    exchange auth code wish Spoti API for access and refresh tokens
 // @params  code={AUTH CODE RECEIVED FROM SPOTIFY CALLBACK}
 router.get("/getToken", async (req, res) => {
   console.log("CODE: ", req.query.code);

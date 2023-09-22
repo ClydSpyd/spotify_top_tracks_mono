@@ -1,5 +1,6 @@
 const axios = require("axios");
 
+// @desc    get access and refresh tokens and save them as global vars
 // @params  auth_code OR refresh_token
 const getTokensWithCode = async (auth_code, req) => {
   try {
@@ -28,9 +29,7 @@ const getTokensWithCode = async (auth_code, req) => {
 
     return spotifyResponse;
   } catch(error){
-    console.log(auth_code)
     console.log(error.response.data)
-    // throw new Error(error.response.data);
     return { error: error.response.data}
   }
 

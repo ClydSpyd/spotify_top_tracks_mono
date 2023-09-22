@@ -15,29 +15,26 @@ router.get("/getRedirect", async (req, res) => {
     client_id: process.env.CLIENT_ID,
     response_type: "code",
     redirect_uri: process.env.REDIRECT_URI,
-    scope: scopes.join("%20")
-  })
+    scope: scopes.join("%20"),
+  });
   const redirect = `${authEndpoint}?${redirectParams}`;
   res.send(redirect);
 });
 
 // @route   GET/auth/getToken
-// @desc    exchange auth code wish Spoti API for access and refresh tokens
+// @desc    exchange auth code for access and refresh tokens, save as global vars
 // @params  code={AUTH CODE RECEIVED FROM SPOTIFY CALLBACK}
 router.get("/getToken", async (req, res) => {
   console.log("CODE: ", req.query.code);
 
   try {
- 
-    await getTokensWithCode(req.query.code, req)
+    await getTokensWithCode(req.query.code, req);
 
     res.json({
       success: true,
     });
-    
   } catch (error) {
-    console.log(error.error);
-    console.log(error.message);
+    console.log(error.response.data);
     res.json({
       success: false,
       message: error.message,

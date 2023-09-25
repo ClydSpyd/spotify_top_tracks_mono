@@ -1,7 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const axios = require("axios");
-const querystring = require("node:querystring");
+const querystring = require("querystring");
 const { getTokensWithCode } = require("../utils/authUtils");
 
 const scopes = ["user-top-read", "user-read-recently-played"];

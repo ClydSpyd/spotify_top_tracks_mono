@@ -2,10 +2,14 @@ const axios = require("axios");
 
 // @desc    get access and refresh tokens and save them as global vars
 // @params  auth_code OR refresh_token
-const getTokensWithCode = async (auth_code, req) => {
+const getTokensWithCode = async (
+  auth_code,
+  req,
+  grant_type = "authorization_code"
+) => {
   try {
     const payload = {
-      grant_type: "authorization_code",
+      grant_type,
       code: auth_code,
       redirect_uri: process.env.REDIRECT_URI,
       client_id: process.env.CLIENT_ID,
@@ -24,15 +28,16 @@ const getTokensWithCode = async (auth_code, req) => {
       config
     );
 
+    console.log("auth_code: ", auth_code);
+    console.log("spotifyResponse: ", spotifyResponse);
     req.app.locals.access_token = spotifyResponse.data.access_token;
     req.app.locals.refresh_token = spotifyResponse.data.refresh_token;
 
     return spotifyResponse;
-  } catch(error){
-    console.log(error.response.data)
-    return { error: error.response.data}
+  } catch (error) {
+    console.log("tokenError: ", error.response.data);
+    return { error: error.response.data };
   }
-
 };
 module.exports = {
   getTokensWithCode

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const { getTopItems } = require("../utils/getSpotifyData");
+const { getTopItems, getMyTopData } = require("../utils/getSpotifyData");
 const tokenMiddle = require("../middleware/tokenMiddle");
 const { getTokensWithCode } = require("../utils/authUtils");
 
@@ -33,16 +33,12 @@ router.get("/myTopArtists", tokenMiddle, async (req, res) => {
 // @desc    return authorized user's top songs AND artists
 router.get("/myTopData", tokenMiddle, async (req, res) => {
   console.log('getCombinedData')
-  try {
-    const songs = await getTopItems(req.token, 'tracks', req.query.time_range, req.query.limit);
-    const artists = await getTopItems(req.token, 'artists');
-    res.json({artists, songs});
-  } catch (error) {
-    if(error.response.data.error.message === 'The access token expired'){
-      console.log('ööÖöö')
-      getTokensWithCode(req.app.locals.refresh_token);
-    }
-    res.json({ error: error.response.data.error.message });
+  const response = await getMyTopData(req);
+  if(!response.error){
+    res.json(response);
+  } else {
+    console.log('error: ', response.error)
+    res.json(response);
   }
 })
 

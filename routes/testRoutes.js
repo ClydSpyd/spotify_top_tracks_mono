@@ -1,6 +1,11 @@
 const express = require("express");
 const router = express.Router();
 
+router.get("/", (req, res) => {
+  res.send('🚀🎧🎶🚀🎧🎶🚀🎧🎶🚀🎧🎶')
+})
+
+
 router.get("/", async (req, res) => {
   const {newCode} = req.query;
   console.log('newCode: ', newCode);

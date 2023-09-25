@@ -4,12 +4,17 @@
   "description": "Spotify oAuth server",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js"
+    "start": "node server",
+    "server": "nodemon server",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "build_render": "npm i && npm i --prefix client && npm run build --prefix client"
   },
   "author": "Dave Clydesdale",
   "license": "ISC",
   "dependencies": {
     "axios": "^1.5.0",
+    "concurrently": "^8.2.1",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -17,5 +22,6 @@
     "node-fetch": "^3.3.2",
     "nodejs-base64-converter": "^1.0.5",
     "nodemon": "^3.0.1"
-  }
+  },
+  "proxy": "http://localhost:6969"
 }

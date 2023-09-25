@@ -16,11 +16,11 @@ app.use(cors());
 app.locals.access_token;
 app.locals.refresh_token;
 
-app.use("/auth", authRoutes);
-app.use("/test", testRoutes);
-app.use("/data", dataRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/test", testRoutes);
+app.use("/api/data", dataRoutes);
 
-app.get('/', (req, res) => res.send('🚀🎧🎶🚀🎧🎶🚀🎧🎶🚀🎧🎶'))
+app.get('/api', (req, res) => res.send('🚀🎧🎶🚀🎧🎶🚀🎧🎶🚀🎧🎶'))
 
 app.listen(PORT, () => {
   console.log(`APP LISTENING ON PORT ${PORT}`)

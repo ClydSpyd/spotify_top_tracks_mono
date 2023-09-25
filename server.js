@@ -1,8 +1,10 @@
 const express = require("express");
+const path = require("path");
 const cors = require("cors");
 const authRoutes = require("./routes/authRoutes.js");
 const testRoutes = require("./routes/testRoutes.js");
 const dataRoutes = require("./routes/dataRoutes.js");
+
 
 const app = express();
 const PORT = process.env.PORT || 6969;

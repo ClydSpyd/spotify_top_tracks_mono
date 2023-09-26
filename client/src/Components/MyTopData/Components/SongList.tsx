@@ -3,6 +3,7 @@ import {
   SectionContainer,
   SectionTitle,
   Song,
+  SongGrid,
 } from "../MyTopData.styles";
 
 interface Props {
@@ -34,7 +35,11 @@ function SongList({ songs }: Props) {
   return (
     <SectionContainer>
       <SectionTitle>Your Top Songs</SectionTitle>
-      <List>{mapItems(songs)}</List>
+      <SongGrid>
+        {mapItems(songs)}
+      </SongGrid>
+      {/* <List>
+        </List> */}
     </SectionContainer>
   );
 }

@@ -2,6 +2,8 @@ import { parse } from "querystring";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { CallbackWrapper } from "./AuthCallback.styles";
+import LoadingScreen from "../LoadingScreen/LoadingScreen";
 
 function AuthCallback() {
   const [error, setError] = useState(null);
@@ -23,7 +25,13 @@ function AuthCallback() {
     if (code) getToken();
   }, [code, navigate]);
 
-  return error ? <h1>{error}</h1> : <h3>Loading...</h3>;
+  return error ? (
+    <CallbackWrapper>
+      <h1>{error}</h1>
+    </CallbackWrapper>
+  ) : (
+    <LoadingScreen />
+  );
 }
 
 export default AuthCallback;

@@ -8,12 +8,15 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 
-const theme = {
+export const theme = {
   palette: {
-    main: "#82acff",
-    light: "#8bffff",
-    contrast: "#8f71ff",
-    highlight: "#ff007b",
+    main: "	#212121",
+    dark: "#121212",
+    light: "#535353",
+    contrast: "#b3b3b3",
+    contrast2: "#808080",
+    highlight: "#5554C8",
+    spotiGreen: "#1db954",
   }
 }
 

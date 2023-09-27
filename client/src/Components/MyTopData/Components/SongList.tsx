@@ -1,6 +1,6 @@
 import {
-  List,
   SectionContainer,
+  SectionHeader,
   SectionTitle,
   Song,
   SongGrid,
@@ -34,12 +34,12 @@ function SongList({ songs }: Props) {
 
   return (
     <SectionContainer>
-      <SectionTitle>Your Top Songs</SectionTitle>
+      <SectionHeader>
+        <SectionTitle>Your Top Songs</SectionTitle>
+      </SectionHeader>
       <SongGrid>
         {mapItems(songs)}
       </SongGrid>
-      {/* <List>
-        </List> */}
     </SectionContainer>
   );
 }

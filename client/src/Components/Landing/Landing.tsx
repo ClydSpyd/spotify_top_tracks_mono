@@ -34,7 +34,7 @@ const Landing = (props: Props) => {
           <NoteIcon />
         </Icons>
         <h3>
-          Using your Spotify listening data, find out what your top tracks,
+          Based on your Spotify listening habits, find out what your top tracks,
           artists and albums are. We will also give you some exciting new
           recommendations based on your preferences!
         </h3>

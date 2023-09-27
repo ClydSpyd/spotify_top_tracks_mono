@@ -1,5 +1,6 @@
 import React from 'react'
-import { Artist, Grid, SectionContainer, SectionTitle } from '../MyTopData.styles'
+import { Artist, Grid, SectionContainer, SectionHeader, SectionTitle } from '../MyTopData.styles'
+import { AiFillPlayCircle } from 'react-icons/ai'
 
 type Props = {
   artists: ArtistData[]
@@ -8,11 +9,16 @@ type Props = {
 const ArtistsList = ({ artists }: Props) => {
   return (
     <SectionContainer>
-      <SectionTitle>Your Top Artists</SectionTitle>
+      <SectionHeader>
+        <SectionTitle>Your Top Artists</SectionTitle>
+      </SectionHeader>
       <Grid>
         {artists.slice(0, 20).map((artist) => (
           <Artist>
-            <img src={artist.images[0].url} alt={artist.name} />
+            <div>
+              <img src={artist.images[0].url} alt={artist.name} />
+              <AiFillPlayCircle />
+            </div>
             <h3>{artist.name}</h3>
           </Artist>
         ))}

@@ -33,7 +33,7 @@ export const ImageWrapper  = styled.div`
     z-index: 10;
     line-height: 4.8rem;
     font-weight: bold;
-    margin: 10px 0;
+    margin: 10px 0 5px 0;
   }
 
   @media(max-width: 890px){
@@ -130,14 +130,14 @@ export const PoweredBy = styled.div`
   align-items: center;
   position: relative;
   z-index: 2;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
   font-weight: 500;
   color: white;
 `;
 
 export const SpotifyLogo = styled.img`
-  height: 35px;
-  margin-left: 8px;
+  height: 30px;
+  margin: 0 8px;
 `
 
 export const Icons = styled.div`

@@ -7,6 +7,8 @@ const getTokensWithCode = async (
   req,
   grant_type = "authorization_code"
 ) => {
+
+    console.log("authCode: ", auth_code);
   try {
     const payload = {
       grant_type,
@@ -29,7 +31,8 @@ const getTokensWithCode = async (
     );
 
     console.log("auth_code: ", auth_code);
-    console.log("spotifyResponse: ", spotifyResponse);
+    console.log("spotifyResponse: ", spotifyResponse.data);
+
     req.app.locals.access_token = spotifyResponse.data.access_token;
     req.app.locals.refresh_token = spotifyResponse.data.refresh_token;
 
@@ -39,6 +42,7 @@ const getTokensWithCode = async (
     return { error: error.response.data };
   }
 };
+
 module.exports = {
   getTokensWithCode
 }

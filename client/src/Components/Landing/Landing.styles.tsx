@@ -24,10 +24,10 @@ export const ImageWrapper  = styled.div`
   padding: 0 30px 30px 30px;
   
   h1{
-    width: 400px;
+    width: 300px;
     text-align: right;
     color: white;
-    font-size: 5.5rem;
+    font-size: 6rem;
     position: relative;
     letter-spacing: -5px;
     z-index: 10;
@@ -78,7 +78,7 @@ export const Content = styled.div`
   h3{
     max-width: 70%;
     color: white;
-    font-weight: normal;
+    font-weight: 300;
     line-height: 1.5rem;
     margin: 40px 0;
   }
@@ -89,7 +89,7 @@ export const Content = styled.div`
   }
   `
   
-  export const Button = styled.button`
+  export const Button = styled.div`
       background-color: transparent;
       background: none;
       padding: 0;
@@ -109,6 +109,10 @@ export const Content = styled.div`
       width: 170px; 
       &:hover{
         background-color: #ffffff15;
+      }
+
+      p{
+        margin: 0;
       }
 
       img.spinner{

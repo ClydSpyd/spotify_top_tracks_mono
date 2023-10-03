@@ -44,7 +44,7 @@ const Landing = (props: Props) => {
           ) : (
             <>
               <ImSpotify className="spotify" />
-              LET'S GO
+              <p>LET'S GO</p>
             </>
           )}
         </Button>

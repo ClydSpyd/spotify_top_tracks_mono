@@ -2,6 +2,4 @@
 
 Interract with Spotify API via oAuth2 auth-code flow in order to see your most-listened artists and songs.
 
-Running on [http://localhost:6969](http://localhost:6969) in dev.
-
-React client repo: [here](https://github.com/ClydSpyd/Spotify_Top-Items_Client)
+`npm run dev` to start server and client 
